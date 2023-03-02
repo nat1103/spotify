@@ -1,6 +1,6 @@
 # Spotify
 
-## Student name
+## COURS Nathan
 
 > Please write your name and surname here
 
