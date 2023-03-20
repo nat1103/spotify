@@ -1,0 +1,21 @@
+
+
+
+.ant-menu{
+    background-color: #000000 !important;
+    margin-top: 30px !important;
+}
+.ant-menu-title-content{
+    font-style: normal !important;
+font-weight: 700 !important;
+font-size: 19px !important;
+
+}
+
+.ant-menu-item{
+    background-color: #000000 !important;
+}
+
+.site-layout-background{
+    background-color: #000000 !important;
+}

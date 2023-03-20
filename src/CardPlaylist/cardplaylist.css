@@ -1,0 +1,46 @@
+
+
+
+.CardPlaylist {
+    font-family: 'DM Sans';
+    color: white;
+    width: 231px;
+    background-color: #181818 ;
+    border-radius: none;
+    border: 1px solid #181818 !important;
+    cursor: pointer;
+}
+
+.ColoredTitle {
+    width: 191px !important;
+    height: 191px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 14px;
+}
+
+
+.ColoredTitle>p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    
+
+}
+
+.ant-card-meta-title , .ant-card-meta-description {
+    color: white !important;
+}
+
+
+
+.CardPlaylistMeta{
+    color: white !important;
+}

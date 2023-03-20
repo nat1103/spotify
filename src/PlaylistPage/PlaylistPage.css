@@ -1,0 +1,103 @@
+.banner-header {
+    height: 245px;
+    display: flex;
+    align-items: center;
+    font-family: DM Sans;
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 125px;
+    text-align: left;
+}
+
+.square-logo {
+    height: 185px;
+    width: 185px;
+    margin: 10px;
+}
+
+.ant-table {
+    background: linear-gradient(180deg, #222222 0%, #1F1F1F 11.64%, #171717 25.66%, #161616 32.94%, #151515 35.98%, #131313 44.89%, #121212 55.22%, #121212 75.34%, #121212 96.58%, rgba(18, 18, 18, 0) 100%) !important;
+    color: white !important;
+}
+
+.ant-table-wrapper .ant-table-thead>tr>th {
+    background: #222222 !important;
+    color: white;
+    border: none;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+}
+
+.ant-table-thead>tr>td {
+    background: #222222 !important;
+    color: white;
+    border: none !important;
+}
+
+
+
+.ant-table-tbody>tr>td {
+    border: none !important;
+    border-collapse: collapse !important;
+}
+
+:where(.css-dev-only-do-not-override-sk7ap8).ant-table-wrapper .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before,
+:where(.css-dev-only-do-not-override-sk7ap8).ant-table-wrapper .ant-table-thead>tr>td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+    display: none !important;
+}
+
+::where(.css-dev-only-do-not-override-sk7ap8).ant-table-wrapper .ant-table-tbody>tr.ant-table-row:hover>td,
+:where(.css-dev-only-do-not-override-sk7ap8).ant-table-wrapper .ant-table-tbody>tr>td.ant-table-cell-row-hover {
+    background: hsla(0, 0%, 100%, .1) !important;
+}
+
+.ant-table-cell-row-hover {
+    background: hsla(0, 0%, 100%, .1) !important;
+}
+
+:where(.css-dev-only-do-not-override-sk7ap8).ant-table-wrapper .ant-table-tbody>tr.ant-table-row:hover>td,
+:where(.css-dev-only-do-not-override-sk7ap8).ant-table-wrapper .ant-table-tbody>tr>td.ant-table-cell-row-hover {
+    background: hsla(0, 0%, 100%, .1) !important;
+}
+
+.playlist-page {
+    margin: 20px;
+}
+
+:where(.css-dev-only-do-not-override-sk7ap8).ant-table-wrapper td.ant-table-column-sort {
+    background: transparent !important;
+}
+
+.ant-table-wrapper .ant-table-column-sorter {
+    display: none !important;
+}
+
+.container-input-playlist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    position: relative;
+    left: 30%;
+    top: 34%;
+}
+
+.search-input {
+    background: rgba(255, 255, 255, 0.4) !important;
+    border-radius: 26px;
+    border: none !important;
+    margin-right : 10px;
+}
+
+.search-input>.ant-input {
+    background-color: #fff0;
+}
+
+.select-input > .ant-select-selector {
+    background: #535353 !important;
+    border-radius: 23px !important;
+    border: none !important;
+}
