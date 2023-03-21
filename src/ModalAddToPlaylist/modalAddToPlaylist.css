@@ -1,0 +1,13 @@
+.modal-add-to-playlist__playlist__name {
+    font-family: DM Sans;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+.modal-add-to-playlist__playlist__name:hover {
+    background: hsla(0, 0%, 100%, .1);
+}
+

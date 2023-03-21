@@ -186,12 +186,13 @@ export const playlistsSlice = createSlice({
         onlyPlaylistYear: storeOnlyPlaylistDefault(defaultPlaylists),
         onlyPlaylistUser: storeOnlyPlaylistUser(defaultPlaylistUser),
         MenuItemPlaylist: defaultMenuItemPlaylist,
-        actualPlaylist: defaultPlaylists[0]
+        actualPlaylist: defaultPlaylists[0],
+        actualTrack: defaultPlaylists[0].tracks[0]
     },
     reducers: {
-        addTrackToPlaylist: (state, action) => {
+        addTrackToPlaylist: (state, action: { payload: { playlistId: string, track: Track } }) => {
             const { playlistId, track } = action.payload;
-            const playlist = state.playlistsYear.find((playlist) => playlist.id === playlistId);
+            const playlist = state.playlistUser.find((playlist) => playlist.id === playlistId);
             if (playlist) {
                 playlist.tracks.push(track);
             }
@@ -252,10 +253,13 @@ export const playlistsSlice = createSlice({
                 console.log(state.playlistUser[0].tracks.length);
             }
         },
+        setActualTrack: (state, action) => {
+            state.actualTrack = action.payload;
+        },
 
     },
 });
 
-export const { addPlaylistToUser, getPlaylistById, addToLikedPlaylist } = playlistsSlice.actions;
+export const { addPlaylistToUser, getPlaylistById, addToLikedPlaylist, addTrackToPlaylist , setActualTrack} = playlistsSlice.actions;
 
 export default playlistsSlice.reducer;

@@ -1,13 +1,14 @@
 
-import React, { RefObject, useEffect } from 'react';
+import React, { RefObject, useEffect, useState } from 'react';
 import { Track } from '../../Slices/playlistsSlice';
 import type { ColumnsType } from 'antd/es/table';
 import Table from 'antd/es/table';
-import { HeartFilled, HeartOutlined } from '@ant-design/icons';
+import { HeartFilled, HeartOutlined, PlusOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
-import { addToLikedPlaylist } from "../../Slices/playlistsSlice";
+import { addToLikedPlaylist , setActualTrack } from "../../Slices/playlistsSlice";
 import { ColumnType } from 'antd/es/table/interface';
 import { InputRef } from 'antd';
+import ModalAddToPlaylist from '../../ModalAddToPlaylist';
 
 interface TracksTableProps {
     tracks: Track[];
@@ -21,11 +22,19 @@ type DataIndex = keyof Track;
 
 const TracksTable = ({ tracks, search, searchInput, selectedOption }: TracksTableProps) => {
     const dispatch = useDispatch();
-    const [sortByYear, setSortByYear] = React.useState<ColumnType<Track>>({});
-    const [sortByTitle, setSortByTitle] = React.useState<ColumnType<Track>>({});
-    const [sortByGenre, setSortByGenre] = React.useState<ColumnType<Track>>({});
-    const [sortByPopularity, setSortByPopularity] = React.useState<ColumnType<Track>>({});
-    const [sortByDuration, setSortByDuration] = React.useState<ColumnType<Track>>({});
+    const [sortByYear, setSortByYear] = useState<ColumnType<Track>>({});
+    const [sortByTitle, setSortByTitle] = useState<ColumnType<Track>>({});
+    const [sortByGenre, setSortByGenre] = useState<ColumnType<Track>>({});
+    const [sortByPopularity, setSortByPopularity] = useState<ColumnType<Track>>({});
+    const [sortByDuration, setSortByDuration] = useState<ColumnType<Track>>({});
+    const [displayedPlus, setDisplayedPlus] = useState<boolean>(false);
+    const [displayedModal, setDisplayedModal] = useState<boolean>(false);
+    const [track, setTrack] = useState<Track>({} as Track);
+
+    const setModal = (track : Track) => {
+        setDisplayedModal(true);
+        setTrack(track);
+    }
     const getColumnSearchProps = (dataIndex: DataIndex): ColumnType<Track> => ({
 
         filteredValue: search ? [search] : null,
@@ -135,20 +144,38 @@ const TracksTable = ({ tracks, search, searchInput, selectedOption }: TracksTabl
                 const minutes = Math.floor(duration / 60);
                 const seconds = duration % 60;
                 return `${minutes}:${seconds}`;
-            }
+            },
+            ...sortByDuration,
+        },
+        {
+            title: "",
+            dataIndex: "Actions",
+            render: (Actions: any, track: Track) => (
+                displayedPlus ? <PlusOutlined onClick={()=>{setModal(track)}}/> : <div style={{ width: 14 }}></div>
+
+            ),
         }
     ];
 
-    return (
+    return (<>
 
         <Table
             columns={columns}
             dataSource={tracks}
             pagination={false}
             rowKey="id"
+            onRow={(record, rowIndex) => {
+                return {
+                    onMouseEnter: event => { setDisplayedPlus(true) }, // mouse enter row
+                    onMouseLeave: event => { setDisplayedPlus(false) },
+                    onDoubleClick: event => { dispatch(setActualTrack(record)) } // mouse leave row
+                };
+            }
+            }
         >
-
         </Table>
+        <ModalAddToPlaylist modalOpen={displayedModal} setModalOpen={setDisplayedModal} track={track}/>
+    </>
     )
 }
 

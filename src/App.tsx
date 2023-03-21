@@ -10,18 +10,20 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 const App = () => {
-    return <Layout>
+    return <Provider store={store}>
         <Layout>
-            <Provider store={store}>
+            <Layout>
+
                 <Navigation />
                 <Routes >
                     <Route path="/" element={<Home />} />
                     <Route path="/playlist/:id" element={<PlayListPage />} />
                 </Routes>
-            </Provider>
-        </Layout>
-        <FooterBar />
-    </Layout>;
+
+            </Layout>
+            <FooterBar />
+        </Layout>;
+    </Provider >
 };
 
 export default App;

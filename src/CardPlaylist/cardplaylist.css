@@ -12,13 +12,11 @@
 }
 
 .ColoredTitle {
-    width: 191px !important;
     height: 191px;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     margin: auto;
-    margin-top: 20px;
     border-radius: 14px;
 }
 
